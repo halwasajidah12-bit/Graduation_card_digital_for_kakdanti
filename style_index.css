@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
+*{
+    font-family: 'Poppins',cursive;
+}
+body{
+    color: azure;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+body.fade-in{
+    opacity: 1;
+}
+/* === Tombol "Yes Please" interaktif === */
+.yes-btn {
+  position: relative;
+  background: transparent;
+  border: 2px solid #8b0000;
+  color: #8b0000;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+
+/* Efek hover: tombol berubah warna & glow */
+.yes-btn:hover {
+  color: #fff;
+  background: #8b0000;
+  box-shadow: 0 0 15px rgba(139, 0, 0, 0.6);
+  transform: scale(1.05);
+}
+
+/* Efek klik: sedikit mengecil */
+.yes-btn:active {
+  transform: scale(0.95);
+}
+
+/* Tambahan animasi "gelombang" saat klik */
+.yes-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.yes-btn.clicked::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+
+
+.link-card {
+    background-color: burlywood;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.link-card:hover {
+    background-color: var(--pink-soft);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+.link-card h5 {
+    color: var(--brown-dark);
+}
+
+.link-card p{
+    color:lightcoral;
+}
+
+.greetings{
+    font-size: 6rem;
+    font-weight: 900;
+}
+.greetings > span{
+    animation: glow 2.5s ease-in-out infinite;
+}
+@keyframes glow{
+    0%, 100%{
+        color: #fff;
+        text-shadow: 0 0 12px #39c6d6, 0 0 50px #39c6d6, 0 0 100px #39c6d6;
+    }
+    10%, 90%{
+        color: #111;
+        text-shadow: none;
+    }
+}
+.greetings > span:nth-child(2){
+    animation-delay: .2s ;
+}
+.greetings > span:nth-child(3){
+    animation-delay: .4s ;
+}
+.greetings > span:nth-child(4){
+    animation-delay: .6s;
+}
+.greetings > span:nth-child(5){
+    animation-delay: .8s;
+}
+
+.description{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.button a{
+    text-decoration: none;
+    font-size: 1rem;
+    color: #111;
+}
+
+@media screen and (max-width:574px){
+    .greetings{
+        display: block;
+        font-size: 3rem;
+        font-weight: 500;
+        text-align: center;
+    }
+    .description{
+        font-size: 1rem;
+    }
+    
+    .button a{
+        font-size: .5rem;
+    }
+}
+.hero {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brown-dark);
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  background-size: 300% 300%;
+  animation: gradientMove 9s ease infinite;
+  position: relative;
+  padding-top: 4rem;
+}
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero-title{
+    font-size: 2.6rem;
+    text-shadow: 0 6px 18px rgb(202,166,120,0.12);
+}
+.topi {
+  transform: translateY(20px);
+}
+
+.hero-sub{
+    font-size: 1.440rem;
+    color: rgba(55,40,20,0.85);
+    margin-top: .6rem;
+}
+
+h1, p {
+  color:brown;
+  font-family: fantasy;
+}
+h4{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.hero-message {
+  color:gray;
+  font-size: 0.5rem;
+  font-style: italic;
+  margin-top: 10px;
+  opacity: 85%;
+  font-family:Verdana;
+}
+
+.hero-content {
+    margin-top: -200px;
+}
+@media (max-width: 768px) {
+  .hero {
+    transform: translateY(-60px);
+  }
+}
+
+img {
+  transition: transform 0.3s ease;
+ 
+}
+
+img:hover {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+
+.btn-main{
+    background-color: var(--brown-dark);
+    color: var(--brown-soft);
+    border: none;
+    padding: .6rem 1.1rem;
+    border-radius: 12px;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(139,111,74,0.12);}
+
+.btn-outline-main{
+    background: transparent;
+    color: var(--brown-dark);
+    border: 1.5px solid rgba(201, 35, 43, 0.829);
+    padding: .55rem 1rem;
+    border-radius: 12px;
+    font-size: 0.80rem;
+    transition: all .2s ease;
+    color: black ;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.btn-main:hover{
+    background: var(--brown-dark);
+    color: var(--brown-soft);
+    transform: translate(-3px);
+}
+

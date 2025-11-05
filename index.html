@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Graduation Card </title>
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link herf="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style_index.css"/>
+</head>
+<style>
+    body {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    body.fade-in {
+      opacity: 1;
+    }
+    .clicked {
+      transform: scale(0.95);
+      transition: transform 0.2s ease;
+    }
+  </style>
+<body  style="background-image: url('Wrinkled\ paper.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;" class="flex justify-center h-screen items-center">
+ 
+   <section class="hero d-flex align-items-center text-center">
+    <div class="container hero-content" data-aos="Fade-up">
+      <img src="topi_graduate-removebg-preview.png" alt="Graduation Cap" class="mx-auto mb-4 w-24 topi" data-aos="zoom-in" data-aos-delay="100">
+      <h1 class="display-4 fw-bold hero-title">HAPPY GRADUATION !</h1>
+      <h4 class="lead hero-sub">Sabrina Ramadhanti S.Ak.</h4>
+      <h6 class="hero-message">do you want to see your gift ? </h6><br>
+      <a href="gift.html" class="btn btn-outline-main btn-lg mt-3 yes-btn">Yes Please</a>
+    </div>
+   </section>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <!-- Confetti JS (FIXED URL!) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Fade-in effect
+      document.body.classList.add("fade-in");
+
+      const yesBtn = document.querySelector(".yes-btn");
+
+      yesBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        yesBtn.classList.add("clicked");
+
+        // Fade out sebelum pindah halaman
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+          window.location.href = yesBtn.getAttribute("href");
+        }, 700);
+      });
+
+      // 🎉 Confetti effect
+      const end = Date.now() + 5 * 1000;
+      const colors = ["#FFC700", "#FF0000", "#2E3192", "#41BBC7"];
+
+      (function frame() {
+        confetti({
+          particleCount: 5,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: colors,
+        });
+
+        confetti({
+          particleCount: 5,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: colors,
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    });
+  </script>
+</body>
+</html>

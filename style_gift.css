@@ -1,0 +1,100 @@
+body.gift-page{
+    background-image: url(download\ \(1\).jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+/* Efek transisi halaman */
+body {
+  opacity: 0;
+  transition: opacity 0.15s ease-in;
+}
+
+body.fade-in {
+  opacity: 3;
+}
+
+.gift-container {
+  text-align: center;
+  color: #6b1c1c;
+  background-color: rgba(255, 255, 255, 0.6); /* lapisan transparan biar teks tetap terbaca */
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.gift-title {
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+
+
+.gift-subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  color: #7a6666;
+  font-style: italic;
+}
+
+/* grid 2x2 */
+.gift-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 120px);
+  grid-gap: 20px;
+  justify-content: center;
+}
+
+.gift-item {
+  background-color: #fff8f8;
+  border: 3px solid #7a1e1e;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.gift-item:hover {
+  transform: scale(1.05);
+}
+
+.gift-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+  .gift-grid {
+    grid-template-columns: repeat(2, 90px);
+    grid-gap: 15px;
+  }
+
+  .gift-item {
+    padding: 15px;
+  }
+
+  .gift-item img {
+    width: 50px;
+    height: 50px;
+  }
+}
+.gift-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-item {
+  grid-column: 1 / span 2; /* biar di tengah */
+  display: flex;
+  justify-content: center;
+}

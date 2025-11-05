@@ -1,0 +1,215 @@
+/* ====== BOXMAIL SECTION ====== */
+.boxMail {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.3);
+  visibility: hidden;
+  transition: all 0.5s ease;
+  z-index: 100000000;
+}
+
+.boxMail.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* Kontainer utama surat */
+.boxMail .boxMail-container {
+  position: absolute;
+  width: 750px;
+  height: 500px;
+  display: flex;
+  margin: 0;
+  transform: scale(0.9);
+  perspective: 2000px;
+  transition: all 0.5s;
+}
+
+/* Hover efek di desktop */
+.boxMail .boxMail-container:hover {
+  transform: rotate(-5deg);
+  filter: drop-shadow(0 0 10px #ff7882);
+}
+
+/* Kartu kiri (pink) */
+.boxMail .boxMail-container .card1,
+.boxMail .boxMail-container .card2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+}
+
+.boxMail .boxMail-container .card1 {
+  width: 50%;
+  background: linear-gradient(to right, #ff7882, #ff7882 63%);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: all 1s ease-in-out;
+}
+
+.boxMail .boxMail-container .card1 .userImg {
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid white;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.boxMail .boxMail-container .card1 .userImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.boxMail .boxMail-container .card1 h3 {
+  font-family: "Dancing Script", cursive;
+  font-size: 40px;
+  text-transform: uppercase;
+  width: 80%;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 5px;
+  transform: rotate(-5deg);
+  text-shadow: 0 0 5px white, 0 0 10px white;
+}
+
+/* Kartu kanan (isi surat) */
+.boxMail .boxMail-container .card2 {
+  width: 50%;
+  background: linear-gradient(to right, #e0e0e0, #ffffff 30%);
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: all 1s;
+}
+
+.boxMail .boxMail-container .card2 .card2-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #ff7882;
+  transition: all 1s;
+  overflow: hidden;
+  font-family: "Inter", serif;
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Animasi dan efek teks */
+.boxMail .boxMail-container .card2 h3 {
+  font-family: "Dancing Script", cursive;
+  padding: 20px 0 10px 60px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 25px;
+  text-shadow: 0 0 8px #ff7882;
+}
+
+.boxMail .boxMail-container .card2:hover h3 {
+  animation: texth3 3s forwards;
+  animation-delay: 2s;
+}
+@keyframes texth3 {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    padding-left: 60px;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    padding-left: 150px;
+  }
+}
+.boxMail .boxMail-container .card2 h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 22px;
+  opacity: 0;
+}
+.boxMail .boxMail-container .card2:hover h2 {
+  animation: texth2 2s forwards;
+  animation-delay: 4s;
+}
+@keyframes texth2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Tombol X */
+.boxMail .fa-xmark {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  z-index: 9999999999;
+}
+
+/* ===== RESPONSIVE FOR MOBILE ===== */
+@media screen and (max-width: 768px) {
+  .boxMail .boxMail-container {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    transform: scale(1);
+  }
+
+  .boxMail .boxMail-container .card1,
+  .boxMail .boxMail-container .card2 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transform: none;
+    border-radius: 15px;
+    border: none;
+  }
+
+  .boxMail .boxMail-container .card1 {
+    background: #ff7882;
+    padding: 20px 10px;
+  }
+
+  .boxMail .boxMail-container .card1 h3 {
+    font-size: 28px;
+    letter-spacing: 2px;
+    transform: none;
+  }
+
+  .boxMail .boxMail-container .card2 .card2-content {
+    padding: 20px 15px;
+    font-size: 16px;
+    text-align: justify;
+    border-radius: 10px;
+  }
+
+  .boxMail .fa-xmark {
+    font-size: 26px;
+    top: 15px;
+    right: 15px;
+  }
+}
